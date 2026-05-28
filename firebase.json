@@ -1,0 +1,67 @@
+{
+    "flutter": {
+        "platforms": {
+            "android": {
+                "default": {
+                    "projectId": "focus-craftz-dev",
+                    "appId": "1:377254767225:android:23d05b7e09d9eb4bc302a8",
+                    "fileOutput": "android/app/google-services.json"
+                },
+                "buildConfigurations": {
+                    "src/dev": {
+                        "projectId": "focus-craftz-dev",
+                        "appId": "1:377254767225:android:0274cb0a6c52a077c302a8",
+                        "fileOutput": "android/app/src/dev/google-services.json"
+                    },
+                    "src/prod": {
+                        "projectId": "focus-craftz-dev",
+                        "appId": "1:377254767225:android:23d05b7e09d9eb4bc302a8",
+                        "fileOutput": "android/app/src/prod/google-services.json"
+                    }
+                }
+            },
+            "ios": {
+                "default": {
+                    "projectId": "focus-craftz-dev",
+                    "appId": "1:377254767225:ios:f61407e09c5e6cc0c302a8",
+                    "uploadDebugSymbols": true,
+                    "fileOutput": "ios/Runner/GoogleService-Info.plist"
+                },
+                "buildConfigurations": {
+                    "Debug-dev": {
+                        "projectId": "focus-craftz-dev",
+                        "appId": "1:377254767225:ios:d20a34428c83d9c6c302a8",
+                        "uploadDebugSymbols": true,
+                        "fileOutput": "ios/firebase/dev/GoogleService-Info.plist"
+                    },
+                    "Debug-prod": {
+                        "projectId": "focus-craftz-dev",
+                        "appId": "1:377254767225:ios:f61407e09c5e6cc0c302a8",
+                        "uploadDebugSymbols": true,
+                        "fileOutput": "ios/firebase/prod/GoogleService-Info.plist"
+                    }
+                }
+            },
+            "dart": {
+                "lib/core/firebase/firebase_options_dev.dart": {
+                    "projectId": "focus-craftz-dev",
+                    "configurations": {
+                        "ios": "1:377254767225:ios:d20a34428c83d9c6c302a8"
+                    }
+                },
+                "lib/core/firebase/firebase_options_prod.dart": {
+                    "projectId": "focus-craftz-dev",
+                    "configurations": {
+                        "ios": "1:377254767225:ios:f61407e09c5e6cc0c302a8"
+                    }
+                },
+                "lib/firebase_options.dart": {
+                    "projectId": "focus-craftz-dev",
+                    "configurations": {
+                        "android": "1:377254767225:android:23d05b7e09d9eb4bc302a8"
+                    }
+                }
+            }
+        }
+    }
+}

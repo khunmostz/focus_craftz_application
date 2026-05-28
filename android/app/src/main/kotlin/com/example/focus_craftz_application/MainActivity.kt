@@ -1,4 +1,4 @@
-package com.example.focus_craftz_application
+package com.khunmostz.focuscraftz
 
 import io.flutter.embedding.android.FlutterActivity
 
