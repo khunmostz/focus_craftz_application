@@ -1,8 +1,8 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../domain/usecases/get_welcome_message.dart';
-import '../../../../core/usecases/usecase.dart';
+import 'package:focus_craftz_application/features/home/domain/usecases/get_welcome_message.dart';
+import 'package:focus_craftz_application/core/usecases/usecase.dart';
 
 part 'home_event.dart';
 part 'home_state.dart';

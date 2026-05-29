@@ -1,9 +1,9 @@
 import 'package:dartz/dartz.dart';
 
-import '../../../../core/error/failures.dart';
-import '../../../../core/usecases/usecase.dart';
-import '../entities/welcome.dart';
-import '../repositories/home_repository.dart';
+import 'package:focus_craftz_application/core/error/failures.dart';
+import 'package:focus_craftz_application/core/usecases/usecase.dart';
+import 'package:focus_craftz_application/features/home/domain/entities/welcome.dart';
+import 'package:focus_craftz_application/features/home/domain/repositories/home_repository.dart';
 
 class GetWelcomeMessage implements UseCase<Welcome, NoParams> {
   GetWelcomeMessage(this._repository);

@@ -5,3 +5,13 @@ class CacheException implements Exception {
 class UnknownException implements Exception {
   const UnknownException();
 }
+
+class ServerException implements Exception {
+  const ServerException([this.message = '']);
+  final String message;
+}
+
+class AuthException implements Exception {
+  const AuthException(this.message);
+  final String message;
+}

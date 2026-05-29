@@ -1,4 +1,4 @@
-import '../../domain/entities/welcome.dart';
+import 'package:focus_craftz_application/features/home/domain/entities/welcome.dart';
 
 abstract class HomeLocalDataSource {
   Future<Welcome> getWelcomeMessage();

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../core/router/app_navigation.dart';
-import '../bloc/home_bloc.dart';
+import 'package:focus_craftz_application/core/router/app_navigation.dart';
+import 'package:focus_craftz_application/features/auth/presentation/bloc/auth_bloc.dart';
+import 'package:focus_craftz_application/features/home/presentation/bloc/home_bloc.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -10,7 +11,18 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('FocusCraftz')),
+      appBar: AppBar(
+        title: const Text('FocusCraftz'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.logout_rounded),
+            tooltip: 'Sign out',
+            onPressed: () {
+              context.read<AuthBloc>().add(const AuthSignOutRequested());
+            },
+          ),
+        ],
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
