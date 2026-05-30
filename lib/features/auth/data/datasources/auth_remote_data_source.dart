@@ -1,10 +1,9 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart' as fb;
 import 'package:google_sign_in/google_sign_in.dart';
 
 import 'package:focus_craftz_application/core/error/exceptions.dart';
-import 'package:focus_craftz_application/features/auth/data/models/user_model.dart';
 import 'package:focus_craftz_application/features/auth/domain/entities/auth_user.dart';
+import 'package:focus_craftz_application/features/profile/data/datasources/user_profile_remote_data_source.dart';
 
 abstract class AuthRemoteDataSource {
   Stream<AuthUser?> get authStateChanges;
@@ -27,11 +26,15 @@ abstract class AuthRemoteDataSource {
 }
 
 class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
-  AuthRemoteDataSourceImpl(this._firebaseAuth, this._googleSignIn, this._firestore);
+  AuthRemoteDataSourceImpl(
+    this._firebaseAuth,
+    this._googleSignIn,
+    this._profileDataSource,
+  );
 
   final fb.FirebaseAuth _firebaseAuth;
   final GoogleSignIn _googleSignIn;
-  final FirebaseFirestore _firestore;
+  final UserProfileRemoteDataSource _profileDataSource;
 
   @override
   Stream<AuthUser?> get authStateChanges =>
@@ -121,11 +124,12 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
 
   Future<void> _saveUserToFirestore(AuthUser user) async {
     try {
-      final model = UserModel.fromAuthUser(user);
-      await _firestore
-          .collection('users')
-          .doc(user.uid)
-          .set(model.toMap(), SetOptions(merge: false));
+      await _profileDataSource.createUserProfile(
+        uid: user.uid,
+        email: user.email,
+        displayName: user.displayName,
+        photoUrl: user.photoUrl,
+      );
     } catch (_) {
       // Firestore write failure is non-fatal — auth already succeeded.
       // Profile will be re-created defensively on first read.

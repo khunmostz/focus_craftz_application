@@ -1,3 +1,46 @@
+## [2026-05-29] Introduce profile feature — UserProfile Clean Arch
+
+### Added
+- `lib/features/profile/domain/entities/user_profile.dart` — pure Dart entity ครบทุก field จาก schema (uid, email, displayName, photoUrl, coins, xp, level, streak, lastFocusDate, totalFocusMinutes, weeklyFocusMinutes, weekStartDate, createdAt, updatedAt)
+- `lib/features/profile/domain/repositories/user_profile_repository.dart` — abstract interface (getUserProfile, createUserProfile)
+- `lib/features/profile/domain/usecases/get_user_profile.dart` — GetUserProfile + GetUserProfileParams
+- `lib/features/profile/domain/usecases/create_user_profile.dart` — CreateUserProfile + CreateUserProfileParams
+- `lib/features/profile/data/models/user_profile_model.dart` — fromMap / toMap / toEntity / newUser factory (weekStartDate คำนวณ Monday ของสัปดาห์ปัจจุบัน)
+- `lib/features/profile/data/datasources/user_profile_remote_data_source.dart` — abstract + impl (Firestore collection `users/{uid}`)
+- `lib/features/profile/data/repositories/user_profile_repository_impl.dart`
+- `lib/features/profile/presentation/bloc/profile_bloc.dart` + event + state (ProfileInitial / ProfileLoading / ProfileLoaded / ProfileError)
+
+### Modified
+- `lib/features/auth/data/datasources/auth_remote_data_source.dart` — ลบ `FirebaseFirestore` dependency, inject `UserProfileRemoteDataSource` แทน, `_saveUserToFirestore` เรียก `_profileDataSource.createUserProfile()` แทน inline Firestore write
+- `lib/core/di/service_locator.dart` — register profile feature ครบ (ProfileBloc, usecases, repo, datasource)
+
+### Removed
+- `lib/features/auth/data/models/user_model.dart` — superseded โดย `UserProfileModel` ใน profile feature
+
+### Design decision
+- auth feature ไม่รู้เรื่อง gamification fields — `UserProfile` เป็น owner เดียว
+- cross-feature dependency อยู่ที่ data layer เท่านั้น (auth datasource → profile datasource interface)
+- `flutter analyze` clean — No issues found
+- 38/38 unit tests ผ่าน, widget_test.dart fail เป็น pre-existing issue เดิม
+
+---
+
+## [2026-05-29] Separate Firebase prod project from dev
+
+### Fixed
+- prod config ทั้งหมดเคยชี้ไปที่ `focus-craftz-dev` project เดียว เพราะ flutterfire configure ครั้งแรกเพิ่ม bundle ID ทั้ง dev+prod ไว้ใน dev project
+- สร้าง Android + iOS app ใหม่ใน `focus-craftz-prod` project ผ่าน Firebase CLI
+- อัพเดต `android/app/src/prod/google-services.json` → ชี้ `focus-craftz-prod` (project: 589350790558)
+- อัพเดต `ios/firebase/prod/GoogleService-Info.plist` → ชี้ `focus-craftz-prod`
+- อัพเดต `lib/core/firebase/firebase_options_prod.dart` → ใช้ credentials ของ prod project
+- อัพเดต `firebase.json` → `src/prod` และ `Debug-prod` ชี้ `focus-craftz-prod` ถูกต้อง
+
+### Prod App IDs (focus-craftz-prod / 589350790558)
+- Android: `1:589350790558:android:767ba8e558087799e9228f`
+- iOS: `1:589350790558:ios:eab089832a955bf6e9228f`
+
+---
+
 ## [2026-05-29] Merge login + register into single AuthPage with PageView
 
 ### Added

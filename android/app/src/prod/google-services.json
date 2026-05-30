@@ -1,73 +1,37 @@
 {
   "project_info": {
-    "project_number": "377254767225",
-    "project_id": "focus-craftz-dev",
-    "storage_bucket": "focus-craftz-dev.firebasestorage.app"
+    "project_number": "589350790558",
+    "project_id": "focus-craftz-prod",
+    "storage_bucket": "focus-craftz-prod.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:377254767225:android:23d05b7e09d9eb4bc302a8",
+        "mobilesdk_app_id": "1:589350790558:android:767ba8e558087799e9228f",
         "android_client_info": {
           "package_name": "com.khunmostz.focuscraftz"
         }
       },
       "oauth_client": [
         {
-          "client_id": "377254767225-tu58kv2opbnbnkjtbnt5dk5dv6r4h1oa.apps.googleusercontent.com",
+          "client_id": "589350790558-1co7g1dc026dsbuv26pk6nmavd9ngscn.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDoeFxaG5jZWYUyBWLwaNgwuGMqfkI3oyw"
+          "current_key": "AIzaSyBlbfMBv4If7koEGWG06x5IbrhYl4WWghw"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "377254767225-tu58kv2opbnbnkjtbnt5dk5dv6r4h1oa.apps.googleusercontent.com",
+              "client_id": "589350790558-1co7g1dc026dsbuv26pk6nmavd9ngscn.apps.googleusercontent.com",
               "client_type": 3
             },
             {
-              "client_id": "377254767225-38hjplgm6do4isi52pbk23ncvuu7pa07.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.khunmostz.focuscraftz"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:377254767225:android:0274cb0a6c52a077c302a8",
-        "android_client_info": {
-          "package_name": "com.khunmostz.focuscraftz.dev"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "377254767225-tu58kv2opbnbnkjtbnt5dk5dv6r4h1oa.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyDoeFxaG5jZWYUyBWLwaNgwuGMqfkI3oyw"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "377254767225-tu58kv2opbnbnkjtbnt5dk5dv6r4h1oa.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "377254767225-38hjplgm6do4isi52pbk23ncvuu7pa07.apps.googleusercontent.com",
+              "client_id": "589350790558-kn029q8ecqdq68oaoh8sdjoh9a7t77si.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
                 "bundle_id": "com.khunmostz.focuscraftz"

@@ -17,20 +17,20 @@ class FirebaseProdOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyDoeFxaG5jZWYUyBWLwaNgwuGMqfkI3oyw',
-    appId: '1:377254767225:android:23d05b7e09d9eb4bc302a8',
-    messagingSenderId: '377254767225',
-    projectId: 'focus-craftz-dev',
-    storageBucket: 'focus-craftz-dev.firebasestorage.app',
+    apiKey: 'AIzaSyBlbfMBv4If7koEGWG06x5IbrhYl4WWghw',
+    appId: '1:589350790558:android:767ba8e558087799e9228f',
+    messagingSenderId: '589350790558',
+    projectId: 'focus-craftz-prod',
+    storageBucket: 'focus-craftz-prod.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyDba9jM8BwVgMQpwcrK6ratvqc7qhR8dlI',
-    appId: '1:377254767225:ios:f61407e09c5e6cc0c302a8',
-    messagingSenderId: '377254767225',
-    projectId: 'focus-craftz-dev',
-    storageBucket: 'focus-craftz-dev.firebasestorage.app',
-    iosClientId: '377254767225-38hjplgm6do4isi52pbk23ncvuu7pa07.apps.googleusercontent.com',
+    apiKey: 'AIzaSyCwQnmbxNys3Ly6pXJPMjs0AQR6b3YA-6Q',
+    appId: '1:589350790558:ios:eab089832a955bf6e9228f',
+    messagingSenderId: '589350790558',
+    projectId: 'focus-craftz-prod',
+    storageBucket: 'focus-craftz-prod.firebasestorage.app',
+    iosClientId: '589350790558-kn029q8ecqdq68oaoh8sdjoh9a7t77si.apps.googleusercontent.com',
     iosBundleId: 'com.khunmostz.focuscraftz',
   );
 

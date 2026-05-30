@@ -21,6 +21,12 @@ import 'package:focus_craftz_application/features/home/data/repositories/home_re
 import 'package:focus_craftz_application/features/home/domain/repositories/home_repository.dart';
 import 'package:focus_craftz_application/features/home/domain/usecases/get_welcome_message.dart';
 import 'package:focus_craftz_application/features/home/presentation/bloc/home_bloc.dart';
+import 'package:focus_craftz_application/features/profile/data/datasources/user_profile_remote_data_source.dart';
+import 'package:focus_craftz_application/features/profile/data/repositories/user_profile_repository_impl.dart';
+import 'package:focus_craftz_application/features/profile/domain/repositories/user_profile_repository.dart';
+import 'package:focus_craftz_application/features/profile/domain/usecases/create_user_profile.dart';
+import 'package:focus_craftz_application/features/profile/domain/usecases/get_user_profile.dart';
+import 'package:focus_craftz_application/features/profile/presentation/bloc/profile_bloc.dart';
 
 final locator = GetIt.instance;
 
@@ -38,6 +44,22 @@ Future<void> initServiceLocator() async {
       analytics: locator<FirebaseAnalytics>(),
       crashlytics: locator<FirebaseCrashlytics>(),
     ),
+  );
+
+  // ─── Profile feature ─────────────────────────────────────
+  locator.registerFactory(
+    () => ProfileBloc(
+      getUserProfile: locator<GetUserProfile>(),
+      analyticsService: locator<AnalyticsService>(),
+    ),
+  );
+  locator.registerLazySingleton(() => GetUserProfile(locator<UserProfileRepository>()));
+  locator.registerLazySingleton(() => CreateUserProfile(locator<UserProfileRepository>()));
+  locator.registerLazySingleton<UserProfileRepository>(
+    () => UserProfileRepositoryImpl(locator<UserProfileRemoteDataSource>()),
+  );
+  locator.registerLazySingleton<UserProfileRemoteDataSource>(
+    () => UserProfileRemoteDataSourceImpl(locator<FirebaseFirestore>()),
   );
 
   // ─── Auth feature ────────────────────────────────────────
@@ -61,7 +83,11 @@ Future<void> initServiceLocator() async {
     () => AuthRepositoryImpl(locator()),
   );
   locator.registerLazySingleton<AuthRemoteDataSource>(
-    () => AuthRemoteDataSourceImpl(locator(), locator(), locator()),
+    () => AuthRemoteDataSourceImpl(
+      locator<FirebaseAuth>(),
+      locator<GoogleSignIn>(),
+      locator<UserProfileRemoteDataSource>(),
+    ),
   );
 
   // ─── Home feature ────────────────────────────────────────

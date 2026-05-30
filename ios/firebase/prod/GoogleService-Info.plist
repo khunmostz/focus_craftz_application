@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>377254767225-38hjplgm6do4isi52pbk23ncvuu7pa07.apps.googleusercontent.com</string>
+	<string>589350790558-kn029q8ecqdq68oaoh8sdjoh9a7t77si.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.377254767225-38hjplgm6do4isi52pbk23ncvuu7pa07</string>
+	<string>com.googleusercontent.apps.589350790558-kn029q8ecqdq68oaoh8sdjoh9a7t77si</string>
 	<key>API_KEY</key>
-	<string>AIzaSyDba9jM8BwVgMQpwcrK6ratvqc7qhR8dlI</string>
+	<string>AIzaSyCwQnmbxNys3Ly6pXJPMjs0AQR6b3YA-6Q</string>
 	<key>GCM_SENDER_ID</key>
-	<string>377254767225</string>
+	<string>589350790558</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.khunmostz.focuscraftz</string>
 	<key>PROJECT_ID</key>
-	<string>focus-craftz-dev</string>
+	<string>focus-craftz-prod</string>
 	<key>STORAGE_BUCKET</key>
-	<string>focus-craftz-dev.firebasestorage.app</string>
+	<string>focus-craftz-prod.firebasestorage.app</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:377254767225:ios:f61407e09c5e6cc0c302a8</string>
+	<string>1:589350790558:ios:eab089832a955bf6e9228f</string>
 </dict>
 </plist>
